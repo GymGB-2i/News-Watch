@@ -20,6 +20,12 @@ A news app specifically for politics.
 * [What is a WebView?](https://www.kirupa.com/apps/webview.htm)
 * [What is Git & GitHub?](https://www.coderomeos.org/how-to-use-github-simple-github-tutorial-for-beginners)
 
+### Why RSS
+RSS is a simple way of accessing information published by news outlets like the New Yorkt Times, NZZ and many other. Accessing an RSS feed is simple and not overly complicated. It is easy to store the news in a data structure and therefor parsing the information to a ```ListView.builder``` in Flutter.
+
+### Why WebView
+Since the news outlets only provide titles and quick teasers in the RSS feeds, accessing the article is done through a web browser. To provide a more seamless expierence, we use a WebView to present the article in-app.
+
 
 ## Getting Started
 
