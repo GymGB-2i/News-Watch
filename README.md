@@ -81,3 +81,5 @@ Since the news outlets only provide titles and quick teasers in the RSS feeds, a
       * The [WebFeed](https://pub.dev/packages/webfeed) plugin allows Flutter to parse (to process) information from a RSS feed
   2. WebView
       * The [WebView](https://pub.dev/packages/flutter_inappwebview) shows a website inside an app
+# UI Concept
+![](https://jouhney.pxls.ch/files/jouhney/Priv/wireframe-pllinews.png)
