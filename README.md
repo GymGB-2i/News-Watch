@@ -72,14 +72,19 @@ Since the news outlets only provide titles and quick teasers in the RSS feeds, a
   ## Widgets and Features
   1. FutureBuilder
       * The [FutureBuilder](https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html) shows content as soon as a function returns it (simplified)
+      * [Tutorial](https://www.youtube.com/watch?v=ek8ZPdWj4Qo) by the Google Developer youtube channel
+      * Tutorial for [ListViews](https://www.youtube.com/watch?v=KJpkjHGiI5A) by the Flutter youtube channel
   2. CustomScrollView
       * The [CustomScrollView](https://api.flutter.dev/flutter/widgets/CustomScrollView-class.html) provides more options to customize the UI
+      * Tutorial for [SliverAppBars](https://www.youtube.com/watch?v=R9C5KMJKluE) by the Google Developer youtube channel
   3. ListTile
       * The [ListTile](https://api.flutter.dev/flutter/material/ListTile-class.html) is a widget that provides a section for a title, subtitle and icons
+      * [Tutorial](https://www.youtube.com/watch?v=l8dj0yPBvgQ) by the Flutter youtube channel
   ## Plugins
   1. WebFeed
       * The [WebFeed](https://pub.dev/packages/webfeed) plugin allows Flutter to parse (to process) information from a RSS feed
   2. WebView
       * The [WebView](https://pub.dev/packages/flutter_inappwebview) shows a website inside an app
+      * [Tutorial](https://www.youtube.com/watch?v=RA-vLF_vnng) by the Flutter youtube channel
 # UI Concept
 ![](https://jouhney.pxls.ch/files/jouhney/Priv/wireframe-pllinews.png)
