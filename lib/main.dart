@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webfeed/webfeed.dart' as webfeed;
 
 void main() {
   runApp(const MyApp());
