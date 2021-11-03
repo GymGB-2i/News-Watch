@@ -4,10 +4,10 @@ import 'package:webfeed/webfeed.dart';
 
 class NewsItem {
 
-  final String title;
-  final String link;
+  final String? title;
+  final String? link;
   final String? image;
-  final String pub_date;
+  final DateTime? pub_date;
 
   NewsItem({
     this.image,
@@ -29,6 +29,14 @@ grabnews(url) async {
          var response = await client.get(
       Uri.parse(url));
   var channel = RssFeed.parse(response.body);
-  print(channel);
-  return channel;
+
+  final item_count = channel.items!.length;
+  List<NewsItem> news_items = [];
+
+  for( var i = 0; i < item_count; i++) {
+    var item = channel.items![i];
+    var news_item = NewsItem(title: item.title, link: item.link, image: item.link, pub_date: item.pubDate);
+    news_items.add(news_item);
+  }
+  return news_items;
 }
