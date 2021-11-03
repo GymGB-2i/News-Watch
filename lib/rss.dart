@@ -7,11 +7,13 @@ class NewsItem {
   final String title;
   final String link;
   final String? image;
+  final String pub_date;
 
   NewsItem({
     this.image,
     required this.title,
     required this.link,
+    required this.pub_date,
   });
 
 }
@@ -28,4 +30,5 @@ grabnews(url) async {
       Uri.parse(url));
   var channel = RssFeed.parse(response.body);
   print(channel);
+  return channel;
 }
