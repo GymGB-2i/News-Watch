@@ -15,3 +15,17 @@ class NewsItem {
   });
 
 }
+
+
+
+grabnews(url) async {
+
+    final client = IOClient(HttpClient()
+    ..badCertificateCallback =
+        ((X509Certificate cert, String host, int port) => true));
+
+         var response = await client.get(
+      Uri.parse(url));
+  var channel = RssFeed.parse(response.body);
+  print(channel);
+}
