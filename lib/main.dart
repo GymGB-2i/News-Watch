@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webfeed/webfeed.dart' as webfeed;
+import 'package:poli_news/rss.dart';
 
 void main() {
   runApp(const MyApp());
