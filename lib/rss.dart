@@ -18,7 +18,15 @@ class NewsItem {
 
 }
 
+getfeeds() {
+  final nyt= 'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml';
+  grabnews(nyt);
+  final nyt_items = grabnews(nyt);
+  final faz = 'https://www.faz.net/rss/aktuell/politik/';
+  grabnews(faz);
+  final faz_items = grabnews(faz);
 
+}
 
 grabnews(url) async {
 
@@ -40,3 +48,4 @@ grabnews(url) async {
   }
   return news_items;
 }
+
