@@ -21,10 +21,17 @@ class NewsItem {
 getfeeds() async {
   final nyt= 'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml';
   grabnews(nyt);
-  final nyt_items = await grabnews(nyt);
+  var nyt_items = await grabnews(nyt);
   final faz = 'https://www.faz.net/rss/aktuell/politik/';
   grabnews(faz);
-  final faz_items = await grabnews(faz);
+  var faz_items = await grabnews(faz);
+
+  while ( nyt_items.length > 10 ) {
+    nyt_items.removeAt(nyt_items.length - 1);
+  }
+  while ( faz_items.length > 10 ) {
+    faz_items.removeAt(faz_items.length - 1);
+  }
 }
 
 grabnews(url) async {
