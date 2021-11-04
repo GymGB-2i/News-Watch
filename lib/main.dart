@@ -3,7 +3,6 @@ import 'package:webfeed/webfeed.dart' as webfeed;
 import 'package:poli_news/rss.dart';
 
 void main() {
-grabnews('https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml');
   runApp(const MyApp());
 }
 

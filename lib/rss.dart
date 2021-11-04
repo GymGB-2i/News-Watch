@@ -18,14 +18,13 @@ class NewsItem {
 
 }
 
-getfeeds() {
+getfeeds() async {
   final nyt= 'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml';
   grabnews(nyt);
-  final nyt_items = grabnews(nyt);
+  final nyt_items = await grabnews(nyt);
   final faz = 'https://www.faz.net/rss/aktuell/politik/';
   grabnews(faz);
-  final faz_items = grabnews(faz);
-
+  final faz_items = await grabnews(faz);
 }
 
 grabnews(url) async {
