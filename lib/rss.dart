@@ -2,6 +2,12 @@ import 'dart:io';
 import 'package:http/io_client.dart';
 import 'package:webfeed/webfeed.dart';
 
+final Map<String, String> news_outlets = {
+  'FAZ': 'https://www.faz.net/rss/aktuell/politik/',
+  'NYT': 'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml',
+  'DEF': 'https://www.deutschlandfunkkultur.de/politik-zeitgeschehen.1521.de.rss',
+};
+
 class NewsItem {
 
   final String? title;
@@ -19,19 +25,25 @@ class NewsItem {
 }
 
 getfeeds() async {
-  final nyt= 'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml';
-  grabnews(nyt);
-  var nyt_items = await grabnews(nyt);
-  final faz = 'https://www.faz.net/rss/aktuell/politik/';
-  grabnews(faz);
-  var faz_items = await grabnews(faz);
 
-  while ( nyt_items.length > 10 ) {
-    nyt_items.removeAt(nyt_items.length - 1);
+  List<dynamic> links = [];
+  List<dynamic> content = [];
+
+  news_outlets.forEach((k, v) => {links.add(v)});
+
+  for (var i = 0; i < links.length; i++) {
+
+    final element_content = await grabnews(links[i]);
+
+    while ( element_content.length > 10 ) {
+      element_content.removeAt(element_content.length - 1);
+    }
+
+    for ( var i = 0; i < element_content.length; i++) {
+      content.add(element_content[i]);
+    }
   }
-  while ( faz_items.length > 10 ) {
-    faz_items.removeAt(faz_items.length - 1);
-  }
+  return content;
 }
 
 grabnews(url) async {
