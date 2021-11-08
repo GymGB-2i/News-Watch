@@ -12,8 +12,37 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold()
-    );
+    return MaterialApp(
+      home: Scaffold(
+        body: FutureBuilder(
+          future: getfeeds(),
+          builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: snapshot.data?.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    title: Text(
+                        snapshot.data![index].title,)
+                    
+                    //Text(
+                        //snapshot.data![index].age,
+                      //style: Theme.of(context).textTheme.headline6
+                    //)
+                  );
+                
+              
+            },
+          );
+       } 
+       else {
+          
+          return const Center(child: Text('Hello World'));
+          }
+      }, //builder
+    )
+    )
+  );
   }
 }
