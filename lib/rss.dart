@@ -13,7 +13,7 @@ class NewsItem {
   final String? title;
   final String? link;
   final String? image;
-  final DateTime? pub_date;
+  final DateTime pub_date;
 
   NewsItem({
     this.image,
@@ -22,12 +22,20 @@ class NewsItem {
     required this.pub_date,
   });
 
+  comparer(NewsItem b) {
+    return this.pub_date.compareTo(b.pub_date);
+  }
+
+
+
 }
 
+// create one big list from the Feeds defined in the news_outlet map
 Future<List> getfeeds() async {
 
   List<dynamic> links = [];
-  List<dynamic> content = [];
+  List<NewsItem> content = [];
+  List<NewsItem> all_content = [];
 
   news_outlets.forEach((k, v) => {links.add(v)});
 
@@ -43,9 +51,21 @@ Future<List> getfeeds() async {
       content.add(element_content[i]);
     }
   }
+
+  all_content = content;
+  await sort_list(all_content);
+
   return content;
 }
 
+// sort a list w/ news_items according to the pub_date
+sort_list(List<NewsItem> list) {
+  list.sort((a, b) => b.comparer(a));
+
+  return list;
+}
+
+// get the contents of an rss feed based on its link
 Future<List> grabnews(url) async {
 
     final client = IOClient(HttpClient()
@@ -61,7 +81,7 @@ Future<List> grabnews(url) async {
 
   for( var i = 0; i < item_count; i++) {
     var item = channel.items![i];
-    var news_item = NewsItem(title: item.title, link: item.link, image: item.link, pub_date: item.pubDate);
+    var news_item = NewsItem(title: item.title, link: item.link, image: item.link, pub_date: item.pubDate!);
     news_items.add(news_item);
   }
   return news_items;
