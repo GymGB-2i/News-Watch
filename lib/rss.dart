@@ -24,7 +24,7 @@ class NewsItem {
 
 }
 
-getfeeds() async {
+Future<List> getfeeds() async {
 
   List<dynamic> links = [];
   List<dynamic> content = [];
@@ -46,7 +46,7 @@ getfeeds() async {
   return content;
 }
 
-grabnews(url) async {
+Future<List> grabnews(url) async {
 
     final client = IOClient(HttpClient()
     ..badCertificateCallback =
