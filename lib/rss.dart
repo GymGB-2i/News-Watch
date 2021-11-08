@@ -23,11 +23,8 @@ class NewsItem {
   });
 
   comparer(NewsItem b) {
-    return this.pub_date.compareTo(b.pub_date);
+    return pub_date.compareTo(b.pub_date);
   }
-
-
-
 }
 
 // create one big list from the Feeds defined in the news_outlet map
@@ -35,25 +32,25 @@ Future<List> getfeeds() async {
 
   List<dynamic> links = [];
   List<NewsItem> content = [];
-  List<NewsItem> all_content = [];
+  List<NewsItem> allContent = [];
 
   news_outlets.forEach((k, v) => {links.add(v)});
 
   for (var i = 0; i < links.length; i++) {
 
-    final element_content = await grabnews(links[i]);
+    final elementContent = await grabnews(links[i]);
 
-    while ( element_content.length > 10 ) {
-      element_content.removeAt(element_content.length - 1);
+    while ( elementContent.length > 10 ) {
+      elementContent.removeAt(elementContent.length - 1);
     }
 
-    for ( var i = 0; i < element_content.length; i++) {
-      content.add(element_content[i]);
+    for ( var i = 0; i < elementContent.length; i++) {
+      content.add(elementContent[i]);
     }
   }
 
-  all_content = content;
-  await sort_list(all_content);
+  allContent = content;
+  await sort_list(allContent);
 
   return content;
 }
@@ -76,14 +73,14 @@ Future<List> grabnews(url) async {
       Uri.parse(url));
   var channel = RssFeed.parse(response.body);
 
-  final item_count = channel.items!.length;
-  List<NewsItem> news_items = [];
+  final itemCount = channel.items!.length;
+  List<NewsItem> newsItems = [];
 
-  for( var i = 0; i < item_count; i++) {
+  for( var i = 0; i < itemCount; i++) {
     var item = channel.items![i];
-    var news_item = NewsItem(title: item.title, link: item.link, image: item.link, pub_date: item.pubDate!);
-    news_items.add(news_item);
+    var newsItem = NewsItem(title: item.title, link: item.link, image: item.link, pub_date: item.pubDate!);
+    newsItems.add(newsItem);
   }
-  return news_items;
+  return newsItems;
 }
 
