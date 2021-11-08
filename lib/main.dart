@@ -19,8 +19,9 @@ class MyApp extends StatelessWidget {
           future: getfeeds(),
           builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
             if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: snapshot.data?.length,
+              return ListView.separated(
+                separatorBuilder: (BuildContext context, int index) => Divider(),
+                itemCount: 30,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
                     title: Text(
