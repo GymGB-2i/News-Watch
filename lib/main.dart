@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
           builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
                 itemCount: snapshot.data?.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
