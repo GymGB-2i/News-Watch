@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => webview_widget(snapshot.data![index].link)),
+                        MaterialPageRoute(builder: (context) => webview_widget(url: snapshot.data![index].link)),
   );
 },
                       title: Text(
