@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poli_news/webview_widget.dart';
 import 'package:webfeed/webfeed.dart' as webfeed;
 import 'package:poli_news/rss.dart';
 
@@ -24,7 +25,13 @@ class MyApp extends StatelessWidget {
                 itemCount: 30,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
-                    title: Text(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => webview_widget(snapshot.data![index].link)),
+  );
+},
+                      title: Text(
                         snapshot.data![index].title,)
                     
                     //Text(
