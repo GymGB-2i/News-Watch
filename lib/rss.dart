@@ -80,7 +80,7 @@ Future<List> grabnews(url) async {
 
   for( var i = 0; i < itemCount; i++) {
     var item = channel.items![i];
-    var newsItem = NewsItem(title: item.title, link: item.link, image: item.link, pub_date: item.pubDate!);
+    var newsItem = NewsItem(title: item.title, link: item.link, image: channel.image?.url, pub_date: item.pubDate!);
     newsItems.add(newsItem);
   }
   return newsItems;
