@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
                               );
                             },
                             title: Text(snapshot.data![index].title),
+                            subtitle: Text(snapshot.data![index].pub_date.toString()),
                           )
                         );
                       },
