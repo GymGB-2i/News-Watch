@@ -5,7 +5,7 @@ import 'package:webfeed/webfeed.dart' as webfeed;
 import 'package:poli_news/rss.dart';
 import 'package:intl/intl.dart';
 
-final DateFormat formatter = DateFormat('yyyy MM dd H:mm');
+final DateFormat formatter = DateFormat('H:mm dd.MM.yyyy');
 
 void main() {
   getfeeds();
