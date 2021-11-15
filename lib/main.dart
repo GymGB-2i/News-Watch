@@ -5,7 +5,7 @@ import 'package:webfeed/webfeed.dart' as webfeed;
 import 'package:poli_news/rss.dart';
 import 'package:intl/intl.dart';
 
-final DateFormat formatter = DateFormat('yyyy-MM-dd');
+final DateFormat formatter = DateFormat('yyyy MM dd H:mm');
 
 void main() {
   getfeeds();
@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
           return Scaffold(body: Center(child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Image.asset('assets/kid jumping.png'),
+              CupertinoActivityIndicator(radius: 30,),
               Text('hold on, while we fetch your news', style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w700,
