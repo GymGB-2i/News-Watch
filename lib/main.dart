@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:poli_news/webview_widget.dart';
 import 'package:webfeed/webfeed.dart' as webfeed;
 import 'package:poli_news/rss.dart';
+import 'package:intl/intl.dart';
+
+final DateFormat formatter = DateFormat('yyyy-MM-dd');
 
 void main() {
   getfeeds();
@@ -45,7 +48,7 @@ class MyApp extends StatelessWidget {
                               );
                             },
                             title: Text(snapshot.data![index].title),
-                            subtitle: Text(snapshot.data![index].pub_date.toString()),
+                            subtitle: Text(formatter.format(snapshot.data![index].pub_date).toString()),
                           )
                         );
                       },
