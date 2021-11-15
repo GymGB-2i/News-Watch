@@ -5,7 +5,9 @@ import 'package:webfeed/webfeed.dart';
 final Map<String, String> news_outlets = {
   'FAZ': 'https://www.faz.net/rss/aktuell/politik/',
   'NYT': 'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml',
-  'DEF': 'https://www.deutschlandfunkkultur.de/politik-zeitgeschehen.1521.de.rss',
+  'TPI': 'https://thepoliticalinsider.com/feed/',
+  'POL': 'https://www.politico.eu/feed/',
+  'THO': 'https://truthout.org/feed/?withoutcomments=1'
 };
 
 class NewsItem {

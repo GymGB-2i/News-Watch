@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.hasData) {
               return ListView.separated(
                 separatorBuilder: (BuildContext context, int index) => Divider(),
-                itemCount: 30,
+                itemCount: snapshot.data!.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
                     onTap: () {
@@ -33,19 +33,10 @@ class MyApp extends StatelessWidget {
 },
                       title: Text(
                         snapshot.data![index].title,)
-                    
-                    //Text(
-                        //snapshot.data![index].age,
-                      //style: Theme.of(context).textTheme.headline6
-                    //)
                   );
-                
-              
             },
           );
-       } 
-       else {
-          
+       } else {
           return const Center(child: Text('Hello World'));
           }
       }, //builder
