@@ -19,44 +19,64 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       home: FutureBuilder(
+        
           future: getfeeds(),
           builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
             if (snapshot.hasData) {
               return Stack(
+                
                 children: [
                   Container(
-                    color: Colors.white
+                    color: Colors.white,
+                    
                   ),
-              CustomScrollView(
-                slivers: [
-                  const CupertinoSliverNavigationBar(
-                    largeTitle: Text('News'),
+                Scaffold(
+                  appBar: const CupertinoNavigationBar(
+                    middle: Text('News'),
                     backgroundColor: Colors.white,
                     border: null,
-                  ),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                        return Card(
-                          elevation: 0,
-                          child: ListTile(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => webview_widget(url: snapshot.data![index].link)),
+                    ),
+
+                  body: SizedBox(
+                  child: CupertinoScrollbar(
+                    thickness: 6.0,
+                    thicknessWhileDragging: 10.0,
+                    radius: const Radius.circular(34.0),
+                    radiusWhileDragging: Radius.zero,
+                    //controller: _controllerOne,
+                    isAlwaysShown: true,
+                    child: ListView.builder(
+                      itemCount: 50,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListView.builder(
+                            itemBuilder: 
+                              (BuildContext context, int index) {
+                                return Card(
+                                  elevation: 0,
+                                  child: ListTile(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => webview_widget(url: snapshot.data![index].link)),
                               );
                             },
                             title: Text(snapshot.data![index].title),
                             subtitle: Text(formatter.format(snapshot.data![index].pub_date).toString()),
-                          )
-                        );
+                          ) //ListTile
+                        ); //Card
                       },
-                      childCount: snapshot.data!.length,
-                    )
-                  )
-                ],
-              )]
+                      //childCount: snapshot.data!.length,
+                    ); //SliverChildBuilderDelegate
+                  
+                  } //SliverList
+                ) 
+                )
+                ) 
+                )
+                ]
+                
               );
        } else {
           return Scaffold(body: Center(child: Column(
@@ -69,7 +89,7 @@ class MyApp extends StatelessWidget {
               )),
             ]
           )));
-          }
+          } //else
       }, //builder
     )
   );
