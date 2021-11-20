@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
                     ),
 
                   body: SizedBox(
+                    // height: 500,
                   child: CupertinoScrollbar(
                     thickness: 6.0,
                     thicknessWhileDragging: 10.0,
@@ -50,12 +51,7 @@ class MyApp extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: 50,
                       itemBuilder: (BuildContext context, int index) {
-                        return ListView.builder(
-                            itemBuilder: 
-                              (BuildContext context, int index) {
-                                return Card(
-                                  elevation: 0,
-                                  child: ListTile(
+                        return ListTile(
                                     onTap: () {
                                       Navigator.push(
                                         context,
@@ -64,11 +60,7 @@ class MyApp extends StatelessWidget {
                             },
                             title: Text(snapshot.data![index].title),
                             subtitle: Text(formatter.format(snapshot.data![index].pub_date).toString()),
-                          ) //ListTile
-                        ); //Card
-                      },
-                      //childCount: snapshot.data!.length,
-                    ); //SliverChildBuilderDelegate
+                          ); //SliverChildBuilderDelegate
                   
                   } //SliverList
                 ) 
