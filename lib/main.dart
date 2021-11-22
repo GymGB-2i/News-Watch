@@ -25,14 +25,8 @@ class MyApp extends StatelessWidget {
           future: getfeeds(),
           builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
             if (snapshot.hasData) {
-              return Stack(
-                
-                children: [
-                  Container(
-                    color: Colors.white,
-                    
-                  ),
-                Scaffold(
+                return Scaffold(
+										backgroundColor: Colors.white,
                   appBar: const CupertinoNavigationBar(
                     middle: Text('News'),
                     backgroundColor: Colors.white,
@@ -42,7 +36,7 @@ class MyApp extends StatelessWidget {
                   body: SizedBox(
                     // height: 500,
                   child: CupertinoScrollbar(
-                    thickness: 6.0,
+                    thickness: 5.0,
                     thicknessWhileDragging: 10.0,
                     radius: const Radius.circular(34.0),
                     radiusWhileDragging: Radius.zero,
@@ -66,8 +60,6 @@ class MyApp extends StatelessWidget {
                 ) 
                 )
                 ) 
-                )
-                ]
                 
               );
        } else {
